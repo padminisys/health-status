@@ -1,6 +1,6 @@
 export DOCKER_USERNAME=padminisys
 export DOCKER_PASSWORD=dckr_pat_eLuls9nsX__neZitCRMyWX2fZgE
-export DOCKER_SERVER=https://index.docker.io/v2/
+export DOCKER_SERVER=https://hub.docker.com/v2/
 kubectl create secret docker-registry regcred --docker-server=${DOCKER_SERVER} --docker-username=${DOCKER_USERNAME} --docker-password=${DOCKER_PASSWORD} -n devops-tools
  
 cat << EOF | kubectl create -f -
