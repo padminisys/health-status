@@ -10,10 +10,6 @@ spec:
         - 99d
     - name: kaniko
       image: gcr.io/kaniko-project/executor:v1.9.1
-      command:
-        - sleep
-      args:
-        - 9999999
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
