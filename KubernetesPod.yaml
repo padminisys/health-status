@@ -10,14 +10,12 @@ spec:
         - 99d
     - name: kaniko
       image: gcr.io/kaniko-project/executor:latest
-      args:
-        [
+      args: [
           "--dockerfile=Dockerfile,
           "--context=/docker/development",
           "--destination=padminisys/health-status:dev",
           "--cache",
-          "--cache-dir=/cache",
-        ]
+          "--cache-dir=/cache"]
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
