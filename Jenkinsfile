@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-      yamlFile 'pod-template.yaml'
+      yamlFile 'KubernetesPod.yaml'
         }
     }
     stages {
