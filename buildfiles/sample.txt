@@ -1,0 +1,35 @@
+export DOCKER_USERNAME=padminisys
+export DOCKER_PASSWORD=dckr_pat_eLuls9nsX__neZitCRMyWX2fZgE
+export DOCKER_SERVER=https://index.docker.io/v2/
+kubectl create secret docker-registry regcred --docker-server=${DOCKER_SERVER} --docker-username=${DOCKER_USERNAME} --docker-password=${DOCKER_PASSWORD} -n devops-tools
+ 
+cat << EOF | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko-docker
+spec:
+  restartPolicy: Never
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:v1.0.0
+    imagePullPolicy: Always
+    args: ["--dockerfile=Dockerfile",
+            "--context=git://github.com/carlossg/kaniko-demo.git",
+            "--destination=${DOCKER_USERNAME}/kaniko-demo"]
+    volumeMounts:
+      - name: docker-config
+        mountPath: /kaniko/.docker
+    resources:
+      limits:
+        cpu: 1
+        memory: 1Gi
+  volumes:
+  - name: docker-config
+    projected:
+      sources:
+      - secret:
+          name: regcred
+          items:
+            - key: .dockerconfigjson
+              path: config.json
