@@ -15,7 +15,7 @@ pipeline {
       steps { container('kaniko') {
           sh '''
             cat /kaniko/.docker/config.json
-            /kaniko/executor --context `pwd`/docker/development/Dockerfile --destination padminisys/health-status:dev --image-name-with-digest-file=image-file
+            /kaniko/executor --context `pwd`/docker/development --destination padminisys/health-status:dev --image-name-with-digest-file=image-file
           '''
       }
         }
