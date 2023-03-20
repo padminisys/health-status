@@ -7,6 +7,9 @@ pipeline {
     stages {
         stage('Clone') {
       steps { container('maven')  {
+            sh '''
+              git config --global --unset https.proxy
+            '''
           git url: 'https://github.com/padminisys/health-status.git', branch: 'main'
       }
         }
