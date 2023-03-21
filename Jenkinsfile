@@ -15,21 +15,5 @@ pipeline {
       }
         }
 }
-        stage('Run create Docker build') {
-      steps {
-        rtCreateDockerBuild(
-                    serverId: 'SERVER_ID',
-                    sourceRepo: 'docker',
-                    kanikoImageFile: 'image-file'
-                )
-      }
-        }
-        stage('Publish build info') {
-      steps {
-        rtPublishBuildInfo(
-                    serverId: 'SERVER_ID'
-                )
-      }
-        }
     }
 }
