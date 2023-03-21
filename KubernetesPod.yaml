@@ -10,12 +10,6 @@ spec:
         - 99d
     - name: kaniko
       image: gcr.io/kaniko-project/executor:latest
-      args:
-        [
-          "--dockerfile=/workspace/dockerfile",
-          "--context=dir://workspace",
-          "--no-push",
-        ]
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
