@@ -13,10 +13,7 @@ spec:
       args:
         [
           "--dockerfile=Dockerfile",
-          "--context=/docker/development",
           "--destination=padminisys/health-status:dev",
-          "--cache",
-          "--cache-dir=/cache",
         ]
       volumeMounts:
         - name: kaniko-secret
