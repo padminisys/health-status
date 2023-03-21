@@ -2,6 +2,7 @@ pipeline {
     agent {
         kubernetes {
       yamlFile 'KubernetesPod.yaml'
+      idleMinutes 30
         }
     }
     stages {
