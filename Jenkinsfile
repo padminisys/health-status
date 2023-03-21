@@ -6,12 +6,6 @@ pipeline {
         }
     }
     stages {
-        stage('Clone') {
-      steps { container('maven')  {
-          git url: 'https://github.com/padminisys/health-status.git', branch: 'main'
-      }
-        }
-    }
         stage('Exec Kaniko') {
       steps { container('kaniko') {
           sh '''
