@@ -12,8 +12,9 @@ spec:
       image: gcr.io/kaniko-project/executor:latest
       args:
         [
-          "--dockerfile=Dockerfile",
-          "--destination=padminisys/health-status:dev",
+          "--dockerfile=/workspace/dockerfile",
+          "--context=dir://workspace",
+          "--no-push",
         ]
       volumeMounts:
         - name: kaniko-secret
