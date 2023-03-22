@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
     - name: helm
-      image: alpine/helm:3.11.2
+      image: docker.io/alpine/helm:3.11.2
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       command:
