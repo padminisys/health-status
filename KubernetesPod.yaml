@@ -4,6 +4,10 @@ spec:
   containers:
     - name: helm
       image: docker.io/alpine/helm:3.11.2
+      command:
+        - sleep
+      args:
+        - 9999999
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       command:
