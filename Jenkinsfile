@@ -3,6 +3,7 @@ pipeline {
         kubernetes {
           yamlFile 'KubernetesPod.yaml'
           idleMinutes 5
+          hostNetwork true
         }
     }
     stages {
