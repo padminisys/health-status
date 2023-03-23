@@ -19,7 +19,7 @@ pipeline {
         stage('Get Image Digest') {
           steps { container('helm') {
           script {
-            image = readFile('`pwd`/helm/digest.txt').trim()
+            image = readFile('./helm/digest.txt').trim()
           }
             echo "Image Digest: ${image}"
           }
