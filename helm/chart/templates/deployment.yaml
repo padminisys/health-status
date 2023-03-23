@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wpk8s
+  name: health-status-deployment
+  labels:
+    app: health-status-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: health-status-pod
+  template:
+    metadata:
+      name: health-status-app
+      labels:
+        app: health-status-pod
+    spec:
+      containers:
+        - name: health-status-container
+          image: docker.io/padminisys/health-status:dev
+          ports:
+            - containerPort: 3000
+              protocol: TCP

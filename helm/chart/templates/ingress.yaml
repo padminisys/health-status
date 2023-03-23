@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: health-status-ing
+  namespace: wpk8s
+  annotations:
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - health.wpk8s.com
+      secretName: health-status-tls
+  rules:
+    - host: health.wpk8s.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: health-status-svc
+                port:
+                  number: 443
+            path: /
+            pathType: Prefix

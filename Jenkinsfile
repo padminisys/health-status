@@ -14,10 +14,10 @@ pipeline {
           }
         }
     }
-        stage('Helm Deploy') {
+        stage('Helm install') {
           steps { container('helm') {
           sh '''
-            helm ls -A
+            helm install health-status-app ./helm/chart
           '''
           }
         }
