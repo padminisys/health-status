@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   namespace: devops-tools
 spec:
-  serviceAccountName: kubernetes-admin
+  serviceAccountName: jenkins-admin
   containers:
     - name: helm
       image: docker.io/alpine/helm:3.11.2
