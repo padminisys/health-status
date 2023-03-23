@@ -45,9 +45,7 @@ export default function Home() {
             rel='noopener noreferrer'
             className={styles.card}>
             <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p>Instantly deploy your apps to Padmini Systems k8s platform</p>
           </a>
         </div>
       </main>

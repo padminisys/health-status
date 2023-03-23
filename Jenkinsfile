@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
           yamlFile 'KubernetesPod.yaml'
-          idleMinutes 5
+          idleMinutes 15
         }
     }
     stages {
@@ -15,9 +15,9 @@ pipeline {
         }
     }
         stage('Update Digest') {
-          steps { container('kaniko') {
+          steps { container('helm') {
           sh '''
-            cat `pwd`/helm/digest.txt
+            cat ./helm/digest.txt
           '''
           }
         }
