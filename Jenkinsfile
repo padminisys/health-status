@@ -17,7 +17,7 @@ pipeline {
         stage('Helm Deploy') {
           steps { container('helm') {
           sh '''
-            helm ls
+            helm ls -A
           '''
           }
         }
