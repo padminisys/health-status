@@ -6,7 +6,7 @@ pipeline {
         }
     }
     stages {
-        stage('Exec Kaniko') {
+        stage('Build Image & Push') {
           steps { container('kaniko') {
           sh '''
             /kaniko/executor --context `pwd` --dockerfile `pwd`/docker/development/Dockerfile --destination padminisys/health-status:dev
@@ -14,5 +14,13 @@ pipeline {
           }
         }
     }
+        stage('Helm Deploy') {
+          steps { container('helm') {
+          sh '''
+            helm ls
+          '''
+          }
+        }
+}
 }
 }
