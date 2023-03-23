@@ -9,15 +9,23 @@ pipeline {
         stage('Build Image & Push') {
           steps { container('kaniko') {
           sh '''
-            /kaniko/executor --context `pwd` --dockerfile `pwd`/docker/development/Dockerfile --destination padminisys/health-status:dev
+            /kaniko/executor --context `pwd` --dockerfile `pwd`/docker/development/Dockerfile --image-name-with-digest-file `pwd`/helm/digest.txt --destination padminisys/health-status:dev
           '''
           }
         }
     }
+        stage('Update Digest') {
+          steps { container('kaniko') {
+          sh '''
+            cat `pwd`/helm/digest.txt
+          '''
+          }
+        }
+}
         stage('Helm install') {
           steps { container('helm') {
           sh '''
-            helm install health-status-app ./helm/chart
+            helm upgrade --install health-status-app ./helm/chart
           '''
           }
         }

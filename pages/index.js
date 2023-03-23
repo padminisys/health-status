@@ -12,7 +12,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href='https://padminisys.com'>Wpk8s</a> on Padmini
-          Systems !
+          Systems K8s Platform!
         </h1>
         <h2 className={styles.title}>with Wpk8s Deployment Environments</h2>
         <h3>API_URL: {process.env.NEXT_PUBLIC_API_URL}</h3>
