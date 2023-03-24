@@ -24,13 +24,12 @@ pipeline {
             echo "Image Digest: ${image}"
           }
         }
-    }
+}
         stage('Helm Based Deployment') {
           steps { container('helm') {
           sh '''
-           helm upgrade --install health-status-app ./helm/chart --set image=${image}
-          '''
+           helm upgrade --install health-status-app ./helm/chart --set image='''${ image }
         }}
-    }
+        }
 }
 }
