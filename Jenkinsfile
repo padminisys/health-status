@@ -27,8 +27,7 @@ pipeline {
 }
         stage('Helm Based Deployment') {
           steps { container('helm') {
-          sh '''
-           helm upgrade --install health-status-app ./helm/chart --set image='''${ image }
+          sh '''helm upgrade --install health-status-app ./helm/chart --set image=''' + ${ image }
         }}
         }
 }
