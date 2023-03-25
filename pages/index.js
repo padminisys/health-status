@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h2 className={styles.title}>Wpk8s Deployment</h2>
+        <h2 className={styles.title}>Mitakshi Deployment</h2>
         <h3>API_URL: {process.env.NEXT_PUBLIC_API_URL}</h3>
         <p className={styles.description}>
           Get started by editing{' '}
