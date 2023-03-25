@@ -20,7 +20,7 @@ export default function Home() {
         <div className={styles.grid}>
           <a href='https://nextjs.org/docs' className={styles.card}>
             <h3>Operators &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <p>Find in-depth information about Padmini Operators.</p>
           </a>
 
           <a href='https://nextjs.org/learn' className={styles.card}>
@@ -47,7 +47,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <h6>Padmini Systems</h6>
+        <h2>Padmini Systems</h2>
       </footer>
     </div>
   );
